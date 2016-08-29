@@ -5,6 +5,7 @@ import ch.idsia.agents.Agent;
 import ch.idsia.benchmark.mario.engine.sprites.Mario;
 import ch.idsia.benchmark.mario.environments.Environment;
 
+// Author: Matthew
 
 public class MyAgent extends BasicMarioAIAgent implements Agent
 {
