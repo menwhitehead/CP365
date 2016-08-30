@@ -18,6 +18,23 @@ class TreeNode:
   def __str__(self):
       return str(self.value)
 
+def dfs(tree, goal):
+    s = []
+    s.append(tree)
+    currNode = s.pop()
+    while currNode.value != goal:
+        print currNode
+        for child in currNode.children:
+            s.append(child)
+        currNode = s.pop()
+
+    # currNode is the goal
+    goal_path = [currNode.value]
+    while currNode.parent != None:
+        currNode = currNode.parent
+        # goal_path.append(currNode.value)
+        goal_path.insert(0, currNode.value)
+    return goal_path
 
 
 def bfs(tree, goal):
@@ -25,7 +42,7 @@ def bfs(tree, goal):
     q.append(tree)
     currNode = q.pop(0)
     while currNode.value != goal:
-        print currNode
+        # print currNode
         for child in currNode.children:
             q.append(child)
         currNode = q.pop(0)
@@ -44,13 +61,15 @@ def buildTree():
     c = TreeNode('C', a)
     d = TreeNode('D', b)
     e = TreeNode('E', b)
+    b.addChild(a)
     f = TreeNode('F', c)
     return a
 
 
 if __name__=="__main__":
     t = buildTree()
-    print bfs(t, 'E')
+    print "Breadth:", bfs(t, 'E')
+    print "Depth:", dfs(t, 'E')
 
 
 
