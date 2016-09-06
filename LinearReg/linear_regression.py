@@ -29,14 +29,14 @@ init_cost = np.sum(np.power((hs_gpa*weight+bias) - col_gpa, 2))
 error = (hs_gpa*weight+bias) - col_gpa
 
 weight = weight - np.sum(learning_rate * error * hs_gpa / len(hs_gpa))
-weight = weight - np.sum(learning_rate * error * 1.0 / len(hs_gpa))
+bias = bias - np.sum(learning_rate * error * 1.0 / len(hs_gpa))
 
 end_cost = np.sum(np.power((hs_gpa*weight+bias) - col_gpa, 2))
 
 error = (hs_gpa*weight+bias) - col_gpa
 
 weight = weight - np.sum(learning_rate * error * hs_gpa / len(hs_gpa))
-weight = weight - np.sum(learning_rate * error * 1.0 / len(hs_gpa))
+bias = bias - np.sum(learning_rate * error * 1.0 / len(hs_gpa))
 
 end_end_cost = np.sum(np.power((hs_gpa*weight+bias) - col_gpa, 2))
 
